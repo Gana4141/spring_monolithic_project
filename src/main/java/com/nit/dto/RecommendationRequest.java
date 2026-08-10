@@ -9,11 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecommendationRequest {
+public class RecommendationRequest 
+{
+	
+	
+	
 
     private Long userId;
     private Long activityId;
-
+    
     private String improvement;
 
     private List<String> suggestions;

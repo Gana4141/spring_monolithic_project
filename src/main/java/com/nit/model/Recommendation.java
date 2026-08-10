@@ -11,34 +11,39 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class Recommendation 
-{
-	  @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-		 private String id;
-	  private String type ;
-	  
-	  @Column(length = 2000)
-	  private  List< String> recommendation;
-	  
-	  @JdbcTypeCode(SqlTypes.JSON)
-	  @Column(columnDefinition = "json")
-	  private String improvment;
-	  
-	  @JdbcTypeCode(SqlTypes.JSON)
-	  @Column(columnDefinition = "json")
-	  private List<String> suggestions;
-	  @JdbcTypeCode(SqlTypes.JSON)
-	  @Column(columnDefinition = "json")
-	  private List<String> safety;
-	  
-	  private LocalDateTime createdAt;
-	     private LocalDateTime updateAt;
-	  
-	  
-	  	
-	  	
-	  
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Recommendation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String type;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private List<String> recommendation;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private String improvement;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private List<String> suggestions;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private List<String> safety;
+	
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }
