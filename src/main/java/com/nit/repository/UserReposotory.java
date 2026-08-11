@@ -8,5 +8,5 @@ import com.nit.model.User;
 @Repository
 public interface UserReposotory extends JpaRepository<User, String>
 {
-	
+
 }

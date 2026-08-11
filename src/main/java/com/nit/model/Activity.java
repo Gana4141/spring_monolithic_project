@@ -6,11 +6,8 @@ import java.util.Map;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,32 +23,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Activity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@JdbcTypeCode(SqlTypes.JSON)
-	@Column(columnDefinition = "json")
-	private Map<String, Object> additionalsMatrix;
-	@ManyToOne
-	@JoinColumn(name="user_id",nullable = false,foreignKey = @ForeignKey(name="fk_activity_user"))
-	@JsonIgnore
-	private User user ;
+    private String activityType;
 
-	private ActivityType type;
+    private Integer duration;
 
-	private Integer duration;
+    private Double caloriesBurned;
 
-	private Integer caloriesBurned;
+    private LocalDateTime startTime;
 
-	private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
-	private LocalDateTime createTime;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "json")
+    private Map<String, Object> additionalsMatrix;
 
-	private LocalDateTime updateAt;
-
-
-
-
-
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

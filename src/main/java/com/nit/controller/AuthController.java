@@ -1,7 +1,7 @@
 package com.nit.controller;
 
-public class AuthController 
+public class AuthController
 {
-	
-   
+
+
 }

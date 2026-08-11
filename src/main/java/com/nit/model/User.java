@@ -31,10 +31,10 @@ public class User
      private List<Activity> activities= new ArrayList<>();
 
 
-		  @OneToMany(mappedBy = "recommdations",cascade = CascadeType.ALL
+		  @OneToMany(mappedBy = "recommendation",cascade = CascadeType.ALL
 		  ,orphanRemoval = true)
 
-		 @JsonIgnore private List<Activity> recommdations= new ArrayList<>();
+		 @JsonIgnore private List<Activity> recommendations= new ArrayList<>();
 
 
 
