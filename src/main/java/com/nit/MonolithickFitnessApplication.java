@@ -12,6 +12,6 @@ public class MonolithickFitnessApplication
 		
 		SpringApplication.run(MonolithickFitnessApplication.class, args);
 		
-	}      
+	}          
      
 }
