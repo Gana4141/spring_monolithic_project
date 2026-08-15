@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponse
+public class RegisterRequest
 {
 	private String id;
 	private String email;
@@ -19,4 +19,4 @@ public class UserResponse
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
-}
+}       
