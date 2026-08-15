@@ -1,3 +1,25 @@
+/*
+ * package com.nit.controller;
+ * 
+ * import org.springframework.web.bind.annotation.PostMapping; import
+ * org.springframework.web.bind.annotation.RequestBody; import
+ * org.springframework.web.bind.annotation.RestController;
+ * 
+ * import com.nit.dto.UserResponse; import com.nit.service.UserService;
+ * 
+ * import lombok.RequiredArgsConstructor;
+ * 
+ * @RestController
+ * 
+ * @RequiredArgsConstructor public class AuthController {
+ * 
+ * private final UserService userService;
+ * 
+ * @PostMapping("/register") public UserResponse register(UserResponse register)
+ * {
+ * 
+ * return userService.register(user); } }
+ */
 package com.nit.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,16 +32,18 @@ import com.nit.model.User;
 import com.nit.service.UserService;
 
 import lombok.RequiredArgsConstructor;
-
+	
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
-public class AuthController {
+public class AuthController
+{
 
-    private final UserService userService;
-
-    @PostMapping("/register")
-    public User register(@RequestBody  RegisterRequest request) {
-        return userService.register(request);
-    }
-}		
+      private final UserService userService;
+      
+//      @PostMapping("/register")
+//     public User register(@RequestBody  RegisterRequest registerRequest)
+//      {
+//    	   return userService.register(registerRequest);
+//      }
+}
