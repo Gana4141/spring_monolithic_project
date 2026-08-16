@@ -40,6 +40,7 @@ package com.nit.service;
 
 import org.springframework.stereotype.Service;
 
+import com.nit.dto.RegisterRequest;
 import com.nit.model.User;
 import com.nit.repository.UserReposotory;
 
@@ -47,19 +48,28 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserService
-      
-{
-	private final UserReposotory userReposotory;
-	public User register(User user)
-{
-		User users = new  User(
-				
-				
-				);
+public class UserService{
 	
-		return userReposotory.save(user);
-	}
+	private final UserReposotory userReposotory;
+	
+//	public User register(RegisterRequest request)
+//	{
+//		
+//		
+//		User users = new  User(
+//	    request.getEmail(),
+//	    request.getPassword(),
+//	    request.getFirstName(),
+//	    request.getLastName(),
+//	    request.getFirstName(),
+//	    request.getUpdatedAt(),
+//	    request.
+//		
+//				
+//				);
+//	
+//		return userReposotory.save(user);
+	
 
     
 }
