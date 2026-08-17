@@ -52,23 +52,17 @@ public class UserService{
 	
 	private final UserReposotory userReposotory;
 	
-//	public User register(RegisterRequest request)
-//	{
-//		
-//		
-//		User users = new  User(
-//	    request.getEmail(),
-//	    request.getPassword(),
-//	    request.getFirstName(),
-//	    request.getLastName(),
-//	    request.getFirstName(),
-//	    request.getUpdatedAt(),
-//	    request.
-//		
-//				
-//				);
-//	
-//		return userReposotory.save(user);
+	public User register(RegisterRequest request)
+	{
+	    User user = new User();
+
+	    user.setEmail(request.getEmail());
+	    user.setPassword(request.getPassword());
+	    user.setFirstName(request.getFirstName());
+	    user.setLastName(request.getLastName());
+
+	    return userReposotory.save(user);
+	}
 	
 
     

@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;  
   @Entity
   @Data
-  @AllArgsConstructor
   @NoArgsConstructor
+  @AllArgsConstructor
   public class User 
   {   
   @Id  
@@ -45,7 +45,7 @@ private List<Recommendation> recommendations = new ArrayList<Recommendation>();
   
   
   
-  
+    
   
   
   }
