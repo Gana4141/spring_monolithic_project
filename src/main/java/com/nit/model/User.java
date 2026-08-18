@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
   private String firstName; 
   private  String lastName;
   private LocalDateTime createdAt;
-  private LocalDateTime  updateAt;  
+  private LocalDateTime  updatedAt;  
   @OneToMany(
 		    mappedBy = "user",
 		    cascade = CascadeType.ALL,
