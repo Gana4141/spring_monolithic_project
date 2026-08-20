@@ -11,7 +11,7 @@ public class MonolithickFitnessApplication
 	{
 		
 		SpringApplication.run(MonolithickFitnessApplication.class, args);
-		System.out.println("Run Successfully...");
+		System.out.println("Run Succesfully....");
 		
 	}          
      
