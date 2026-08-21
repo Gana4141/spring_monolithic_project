@@ -3,7 +3,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.type.SqlTypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,6 +24,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,6 +32,7 @@ import lombok.NoArgsConstructor;
 @Data  
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Activity
 {
 
@@ -53,8 +58,11 @@ public class Activity
    
    private Integer duration;
    private Integer caloriesBurned;
+ 
    private LocalDateTime  startTime;
+   @CreationTimestamp
    private LocalDateTime createdAt;
+   @UpdateTimestamp
    private LocalDateTime updatedAt;
    
    @OneToMany(mappedBy = "activity",cascade = CascadeType.ALL,orphanRemoval =true )

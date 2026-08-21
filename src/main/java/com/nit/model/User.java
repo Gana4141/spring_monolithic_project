@@ -3,6 +3,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import   jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;  
@@ -17,6 +20,7 @@ import lombok.RequiredArgsConstructor;
   @Data
   @NoArgsConstructor
   @AllArgsConstructor
+  @Builder
   public class User 
   {   
   @Id  
@@ -26,7 +30,10 @@ import lombok.RequiredArgsConstructor;
   private String password;
   private String firstName; 
   private  String lastName;
+  @CreationTimestamp
   private LocalDateTime createdAt;
+  @CreationTimestamp
+  
   private LocalDateTime  updatedAt;  
   @OneToMany(
 		    mappedBy = "user",
