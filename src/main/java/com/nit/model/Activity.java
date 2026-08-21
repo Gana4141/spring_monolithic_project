@@ -29,7 +29,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data  
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -39,36 +39,36 @@ public class Activity
    @Id
    @GeneratedValue(strategy =GenerationType.UUID)
    private String id;
-   
+
    @Enumerated(EnumType.STRING)
    private ActivityType type;
-   
+
    @ManyToOne
    @JoinColumn(name="user_id",nullable = false,
    foreignKey = @ForeignKey(name="fk_activity_user"
    ))
-   
-   
+
+
    @JsonIgnore
    private User user ;
-   
+
    @JdbcTypeCode(SqlTypes.JSON)
-   @Column(columnDefinition ="json" )   
+   @Column(columnDefinition ="json" )
    private Map<String, Object> additionalsMetrics;
-   
+
    private Integer duration;
    private Integer caloriesBurned;
- 
+
    private LocalDateTime  startTime;
    @CreationTimestamp
    private LocalDateTime createdAt;
    @UpdateTimestamp
    private LocalDateTime updatedAt;
-   
+
    @OneToMany(mappedBy = "activity",cascade = CascadeType.ALL,orphanRemoval =true )
    @JsonIgnore
-   private List<Recommendation> recommendations= new ArrayList<Recommendation>();
-   
-   
-   
+   private List<Recommendation> recommendations= new ArrayList<>();
+
+
+
 }

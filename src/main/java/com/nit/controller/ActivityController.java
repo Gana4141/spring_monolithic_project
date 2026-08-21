@@ -31,8 +31,10 @@ public class ActivityController
     }
 
     @GetMapping
-    public ResponseEntity<List<ActivityResponse>> getActivities() {
-
-        return null;
+    public ResponseEntity<List<ActivityResponse>> getUserActivities(String userId)
+    {
+     
+     
+        return ResponseEntity.ok(activityService.getUserActivities(userId));
     }
 }

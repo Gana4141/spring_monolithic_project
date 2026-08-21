@@ -1,6 +1,10 @@
 package com.nit.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import com.nit.dto.ActivityRequest;
 import com.nit.dto.ActivityResponse;
@@ -13,11 +17,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class ActivityService 
+public class ActivityService
 {
   private final ActivityRepository activityRepository;
   private final  UserReposotory userReposotory;
-  public ActivityResponse trackActivity(ActivityRequest request) 
+  public ActivityResponse trackActivity(ActivityRequest request)
   {
 	  User user = userReposotory.findById(request.getUserId())
 			  .orElseThrow(()->new RuntimeException("Invalid user +"+request.getUserId()));
@@ -25,7 +29,7 @@ public class ActivityService
 			  .user(user)
 			 .type(request.getType())
 			 .duration(request.getDuration())
-              .caloriesBurned(request.getCaloriesBurned())	
+              .caloriesBurned(request.getCaloriesBurned())
               .startTime(request.getStartTime())
               .additionalsMetrics(request.getAdditionalsMetrics())
               .build();
@@ -46,5 +50,11 @@ public class ActivityService
 	  response.setUpdatedAt(activity.getUpdatedAt());
 	return response;
   }
-  
+  public  List<ActivityResponse> getUserActivities(@RequestHeader(value = "X-User-ID") String userId)
+  {
+      List<Activity> activitiesList=activityRepository.findByUserId(userId);
+      
+	return null;
+  }
+
 }

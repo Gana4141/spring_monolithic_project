@@ -16,19 +16,19 @@ public class UserService {
 
     public UserResponse register(UserResponse request) {
 
-		
+
 		  User user = new User();
-		  
+
 		  user.setEmail(request.getEmail()); user.setPassword(request.getPassword());
 		  user.setFirstName(request.getFirstName());
 		  user.setLastName(request.getLastName());
 		  user.setCreatedAt(request.getCreatedAt());
 		  user.setUpdatedAt(request.getUpdatedAt());
-		  
+
 		  User savedUser = userReposotory.save(user);
-		 
+
 		  return mapToResponse(savedUser);
-		 
+
     }
 
     private UserResponse mapToResponse(User savedUser) {

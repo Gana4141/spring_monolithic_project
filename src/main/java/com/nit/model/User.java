@@ -1,4 +1,4 @@
-package com.nit.model;  
+package com.nit.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,45 +15,43 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;  
   @Entity
   @Data
   @NoArgsConstructor
   @AllArgsConstructor
   @Builder
-  public class User 
-  {   
-  @Id  
-  @GeneratedValue(strategy = GenerationType.UUID) 
+  public class User
+  {
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
   private  String email;
   private String password;
-  private String firstName; 
+  private String firstName;
   private  String lastName;
   @CreationTimestamp
   private LocalDateTime createdAt;
   @CreationTimestamp
-  
-  private LocalDateTime  updatedAt;  
+
+  private LocalDateTime  updatedAt;
   @OneToMany(
 		    mappedBy = "user",
 		    cascade = CascadeType.ALL,
 		    orphanRemoval = true
 		)
   private List<Activity> activities = new ArrayList<>();
-  
-  
+
+
   @OneToMany(
 		    mappedBy = "user",
 		    cascade = CascadeType.ALL,
 		    orphanRemoval = true
 		)
-private List<Recommendation> recommendations = new ArrayList<Recommendation>();
-  
-  
-  
-    
-  
-  
+private List<Recommendation> recommendations = new ArrayList<>();
+
+
+
+
+
+
   }
- 
