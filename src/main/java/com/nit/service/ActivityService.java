@@ -1,6 +1,7 @@
 package com.nit.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,7 +55,12 @@ public class ActivityService
   {
       List<Activity> activitiesList=activityRepository.findByUserId(userId);
       
-	return null;
+      
+      
+      
+	return activitiesList.stream().map(this::mapToResponse)
+		.collect(Collectors.toList());
+	
   }
 
 }
